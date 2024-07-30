@@ -12,7 +12,7 @@ My goals with this processor were:
 
 To achieve this, I purchased a [DEO-Nano FPGA from Terasic](https://www.terasic.com.tw/cgi-bin/page/archive.pl?No=593) (now owned by Intel). It's a nifty little FPGA, not overly endowed with Logic Elements (LE), but it was within my budget. It is fairly evident that at the time, I was particularly interested in state machines as I was determined to create the control logic in terms of micro-instructions, which entirely bloated the processor into a 38-cycle machine. While I was aware at the time of single-cycle processors and pipelining, something compelled me to create that god-awful statemachine. My current hypothesis is that the fear of the critical path deluded me into thinking that extrememly short paths, with precisely controlled signalling (to avoid race conditions) was the appropriate design choice. Regardless, I have never been as locked-in as I was during that week, it was a lot of fun to make. The sheer elation of being able to run the processor on an FPGA and then interact with it, is something that I chase to this day. The Cyclone IV FPGA was able to run this processor at a whopping 227MHz, I was very pleased about this.
 
-![Janus](docs\images\instruction_decoder_flow_chart.png)
+![Janus](/docs/images/instruction_decoder_flow_chart.png)
 
 ## Project Structure
 
