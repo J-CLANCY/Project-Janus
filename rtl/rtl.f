@@ -1,0 +1,15 @@
+alu_fsm.v
+adder_8_bit.v
+alu.v
+gen_1_17_demux.v
+gen_17_1_mux.v
+gp_reg.v
+id_fsm.v
+inst_decoder.v
+inst_reg.v
+ip_mux.v
+janus.v
+program_counter.v
+reg_bank.v
+dib_demux.v
+wr_req_fsm.v

@@ -1,0 +1,593 @@
+# SimVision Command Script (Mon Feb 12 09:53:22 AM GMT 2018)
+#
+# Version 15.20.s030
+#
+# You can restore this configuration with:
+#
+#      irun -covoverwrite -coverage block -f rtl.f ram.v ../verify/tb_janus.v +access+r+w +gui -s -input /proj/ASP1800/workareas/zbf63z/repo1/design_data/ConceptStudy/Janus/rtl/fib_test.tcl
+#
+
+
+#
+# Preferences
+#
+preferences set toolbar-Standard-WatchWindow {
+  usual
+  shown 0
+}
+preferences set plugin-enable-svdatabrowser-new 1
+preferences set toolbar-Windows-WatchWindow {
+  usual
+  shown 0
+}
+preferences set toolbar-sendToIndago-WaveWindow {
+  usual
+  position -pos 1
+}
+preferences set toolbar-Standard-Console {
+  usual
+  position -pos 1
+}
+preferences set toolbar-Search-Console {
+  usual
+  position -pos 2
+}
+preferences set plugin-enable-groupscope 0
+preferences set sb-display-values 1
+preferences set plugin-enable-interleaveandcompare 0
+preferences set plugin-enable-waveformfrequencyplot 0
+preferences set toolbar-SimControl-WatchWindow {
+  usual
+  shown 0
+}
+preferences set whats-new-dont-show-at-startup 1
+preferences set toolbar-TimeSearch-WatchWindow {
+  usual
+  shown 0
+}
+
+#
+# Simulator
+#
+database require simulator -hints {
+	simulator "irun -covoverwrite -coverage block -f rtl.f ram.v ../verify/tb_janus.v +access+r+w +gui -s -input fib_test.tcl"
+}
+
+#
+# Conditions
+#
+set expression {tb_janus.janus.reg_bank.pc.data_out[31:0]}
+if {[catch {condition new -name  pc -expr $expression}] != ""} {
+    condition set -using pc -expr $expression
+}
+set expression tb_janus.janus.reg_bank.pc.reg_wr_ack
+if {[catch {condition new -name  pc_ack -expr $expression}] != ""} {
+    condition set -using pc_ack -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg0.data_out[31:0]}
+if {[catch {condition new -name  reg0 -expr $expression}] != ""} {
+    condition set -using reg0 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg0.data_out[31:0]}
+if {[catch {condition new -name  reg0_data -expr $expression}] != ""} {
+    condition set -using reg0_data -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg1.data_out[31:0]}
+if {[catch {condition new -name  reg1 -expr $expression}] != ""} {
+    condition set -using reg1 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg1.data_out[31:0]}
+if {[catch {condition new -name  reg1_date -expr $expression}] != ""} {
+    condition set -using reg1_date -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg2.data_out[31:0]}
+if {[catch {condition new -name  reg2 -expr $expression}] != ""} {
+    condition set -using reg2 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg3.data_out[31:0]}
+if {[catch {condition new -name  reg3 -expr $expression}] != ""} {
+    condition set -using reg3 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg4.data_out[31:0]}
+if {[catch {condition new -name  reg4 -expr $expression}] != ""} {
+    condition set -using reg4 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg5.data_out[31:0]}
+if {[catch {condition new -name  reg5 -expr $expression}] != ""} {
+    condition set -using reg5 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg6.data_out[31:0]}
+if {[catch {condition new -name  reg6 -expr $expression}] != ""} {
+    condition set -using reg6 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg7.data_out[31:0]}
+if {[catch {condition new -name  reg7 -expr $expression}] != ""} {
+    condition set -using reg7 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg8.data_out[31:0]}
+if {[catch {condition new -name  reg8 -expr $expression}] != ""} {
+    condition set -using reg8 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg9.data_out[31:0]}
+if {[catch {condition new -name  reg9 -expr $expression}] != ""} {
+    condition set -using reg9 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg10.data_out[31:0]}
+if {[catch {condition new -name  reg10 -expr $expression}] != ""} {
+    condition set -using reg10 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg11.data_out[31:0]}
+if {[catch {condition new -name  reg11 -expr $expression}] != ""} {
+    condition set -using reg11 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg12.data_out[31:0]}
+if {[catch {condition new -name  reg12 -expr $expression}] != ""} {
+    condition set -using reg12 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg13.data_out[31:0]}
+if {[catch {condition new -name  reg13 -expr $expression}] != ""} {
+    condition set -using reg13 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg14.data_out[31:0]}
+if {[catch {condition new -name  reg14 -expr $expression}] != ""} {
+    condition set -using reg14 -expr $expression
+}
+set expression {tb_janus.janus.reg_bank.reg15.data_out[31:0]}
+if {[catch {condition new -name  reg15 -expr $expression}] != ""} {
+    condition set -using reg15 -expr $expression
+}
+#
+# Groups
+#
+catch {group new -name Registers -overlay 0}
+catch {group new -name {Group 2} -overlay 0}
+catch {group new -name RAM -overlay 0}
+catch {group new -name ALU -overlay 0}
+catch {group new -name Register_Bank -overlay 0}
+catch {group new -name DIB -overlay 0}
+catch {group new -name {ID etc.} -overlay 0}
+group using Registers
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {[format {reg0_data[31:0]}]} ] \
+    [subst  {[format {reg1_date[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.reg_bank.reg2.data_out[31:0]}]} ]
+group using {Group 2}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {simulator::[format {tb_janus.janus.dib_rb[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.dib_janus[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.dib_id[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.dib_ack}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.dib_sel}]} ]
+group using RAM
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {simulator::[format {tb_janus.ram.address[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.ram.mem[0:255]}]} ] \
+    [subst  {simulator::[format {tb_janus.ram.mar_wr}]} ] \
+    [subst  {simulator::[format {tb_janus.ram.ram_wr}]} ] \
+    [subst  {simulator::[format {tb_janus.ram.ram_oe}]} ] \
+    [subst  {simulator::[format {tb_janus.ram.mar_wr_ack}]} ] \
+    [subst  {simulator::[format {tb_janus.ram.ram_wr_ack}]} ] \
+    [subst  {simulator::[format {tb_janus.ram.ram_oe_ack}]} ]
+group using ALU
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {simulator::[format {tb_janus.janus.alu_a[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.alu_a_sel[8:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.alu.alu_req}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.alu_ack}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.alu_b[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.alu_b_sel[8:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.alu_fnct_sel[8:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.alu_out[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.cf}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.zf}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.vf}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.nf}]} ]
+group using Register_Bank
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {[format {reg0[31:0]}]} ] \
+    [subst  {[format {reg1[31:0]}]} ] \
+    [subst  {[format {reg2[31:0]}]} ] \
+    [subst  {[format {reg3[31:0]}]} ] \
+    [subst  {[format {reg4[31:0]}]} ] \
+    [subst  {[format {reg5[31:0]}]} ] \
+    [subst  {[format {reg6[31:0]}]} ] \
+    [subst  {[format {reg7[31:0]}]} ] \
+    [subst  {[format {reg8[31:0]}]} ] \
+    [subst  {[format {reg9[31:0]}]} ] \
+    [subst  {[format {reg10[31:0]}]} ] \
+    [subst  {[format {reg11[31:0]}]} ] \
+    [subst  {[format {reg12[31:0]}]} ] \
+    [subst  {[format {reg13[31:0]}]} ] \
+    [subst  {[format {reg14[31:0]}]} ] \
+    [subst  {[format {reg15[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.ab[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.addr_sel[8:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.rtr_sel[8:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.reg_wr_ack}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.reg_wr}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.reg_clr}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.rb_reg_clr_sel[8:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.rb_ip_reg_sel[8:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.rb_ip_sel[2:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.imme_out[15:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.hl_sel[1:0]}]} ]
+group using DIB
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+    [subst  {simulator::[format {tb_janus.janus.dib_ack}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.dib_id[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.dib_janus[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.dib_rb[31:0]}]} ] \
+    [subst  {simulator::[format {tb_janus.janus.dib_sel}]} ]
+group using {ID etc.}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 1920x1174+0+0}] != ""} {
+    window geometry "Design Browser 1" 1920x1174+0+0
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope [subst  {simulator::[format {tb_janus.janus.inst_decoder.id_fsm}]} ]
+browser set \
+    -signalsort name
+browser yview see [subst  {simulator::[format {tb_janus.janus.inst_decoder.id_fsm}]} ]
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1916x1170+0+0}] != ""} {
+    window geometry "Waveform 1" 1916x1170+0+0
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar select designbrowser
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+waveform baseline set -time 5890ns
+
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.inst_decoder.id_fsm.cs[5:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.clk_janus}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.rst_janus_b}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.inst_decoder.id_fsm.instr[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {pc[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.pc_incr}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {pc_ack}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.reg_bank.pc.cs[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.inst_decoder.ir_wr}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.inst_decoder.ir_wr_ack}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.dob_sel[8:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.dob[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.cb_out[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{simulator::[format {tb_janus.janus.cb_in[2:0]}]}
+	} ]]
+
+set groupId0 [waveform add -groups Register_Bank]
+
+
+set groupId0 [waveform add -groups ALU]
+waveform hierarchy collapse $groupId0
+
+
+set groupId0 [waveform add -groups DIB]
+waveform hierarchy collapse $groupId0
+
+
+set groupId0 [waveform add -groups RAM]
+waveform hierarchy collapse $groupId0
+
+
+waveform xview limits 0 2000ns
+
+#
+# Waveform Window Links
+#
+
+#
+# Schematic Tracer windows
+#
+if {[catch {window new SchematicWindow -name "Schematic Tracer 2" -geometry 1916x1120+1920+25}] != ""} {
+    window geometry "Schematic Tracer 2" 1916x1120+1920+25
+}
+window target "Schematic Tracer 2" on
+schematic using "Schematic Tracer 2"
+schematic sidebar visibility partial
+schematic set \
+    -radix default \
+    -fullsignalname 0 \
+    -showvalue 1 \
+    -showstrength 0 \
+    -showgrey 0 \
+    -tracemode Single \
+    -showrtl 1 \
+    -showcells 1 \
+    -showcellpins 0
+schematic timecontrol set -lock 0
+schematic restore -state {# String saved with Nlview version 6.3.5  2013-09-24 bk=1.2895 VDI=33 GEI=35
+#  -string
+# non-default properties - (restore without -noprops)
+property attrcolor #40e0d0
+property attrfontsize 10
+property boxmaxwidth 400
+property boxmingap 40
+property boxminheight 40
+property boxminwidth 100
+property buscolor #00ff00
+property fillcolor1 #000000
+property fillcolor2 #000000
+property gatecellname 1
+property netcolor #00ff00
+property objecthighlight0 #fe00a9
+property objecthighlight1 #fe00a9
+property objecthighlight2 #00fe00
+property objecthighlight3 #fefe00
+property objecthighlight9 #fefeae
+property pinattrmax 200
+property selectionappearance 2
+property selectioncolor #fefeae
+property sheetheight 0
+property sheetwidth 0
+property showhierpinname 1
+property showinvisibles 1
+property showmarks 1
+#
+module new module {}
+load symbol DAI_SOURCE_IN {} DEF port 0 input -loc -14 0 0 0 pinattrdsp @name -cr -2 -5 8i attrdsp @cell -ll -10 16 10 path 0 -6 9 -6 12 -3 12 6 0 6 0 -6 path 12 -3 9 -3 9 -6 path 2 -3 6 -3 path 2 0 10 0 path 2 3 10 3
+load symbol DAI_SOURCE_OUT {} DEF port 0 output -loc 26 0 12 0 pinattrdsp @name -cl 30 -5 8i attrdsp @cell -ll -10 16 10 path 0 -6 9 -6 12 -3 12 6 0 6 0 -6 path 12 -3 9 -3 9 -6 path 2 -3 6 -3 path 2 0 10 0 path 2 3 10 3
+#
+module new root {} -nosplit
+load symbol ram {} HIERBOX pin 0 input.left pin 1 input.left pinBus 0 input.left 3 2 3 4 pinBus 1 input.left 32 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 pinBus 2 input.left 32 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 pinBus 3 output.right 3 69 70 71 pinBus 4 output.right 32 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 fillcolor 2
+load symbol tb_janus {} HIERBOX fillcolor 2
+load symbol janus {} HIERBOX pin 0 input.left pin 1 input.left pin 104 output.right pinBus 0 input.left 32 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 pinBus 1 input.left 3 34 35 36 pinBus 2 output.right 32 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 pinBus 3 output.right 32 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 pinBus 4 output.right 3 101 102 103 fillcolor 2
+load symbol rtl_Unknown_4 {} GEN pin 0 output.right fillcolor 1
+load symbol rtl_LNot_5 {} RTL(~) pin 0 input.left pin 1 output.right fillcolor 1
+load symbol rtl_Unknown_6 {} GEN pin 0 output.right fillcolor 1
+load symbol rtl_Unknown_7 {} GEN pinBus 0 input.left 32 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 fillcolor 1
+load inst simulator::tb_janus tb_janus {} -attr @color #00ffff -pg 1 -lvl 1 -y 50 -regy -30
+load inst simulator::tb_janus,ram ram {} -hier simulator::tb_janus -attr @name ram -attr @color #00ffff -pinAttr 0 @name clk_janus=x -pinAttr 0 @color #ff0000 -pinAttr 1 @name rst_janus_b=x -pinAttr 1 @color #ff0000 -pinBusAttr 0 @name {cb_out[2:0]=x} -pinBusAttr 0 @color #ff0000 -pinBusAttr 1 @name {ab[31:0]=xxxxxxxx} -pinBusAttr 1 @color #ff0000 -pinBusAttr 2 @name {dob[31:0]=xxxxxxxx} -pinBusAttr 2 @color #ff0000 -pinBusAttr 3 @name {cb_in[2:0]=x} -pinBusAttr 3 @color #ff0000 -pinBusAttr 4 @name {dib_janus[31:0]=xxxxxxxx} -pinBusAttr 4 @color #ff0000 -hierPinAttr 0 @name clk -hierPinAttr 1 @name rst_b -hierPinBusAttr 0 @name {cb_out[2:0]} -hierPinBusAttr 1 @name {ab[31:0]} -hierPinBusAttr 2 @name {dob[31:0]} -hierPinBusAttr 3 @name {cb_in[2:0]} -hierPinBusAttr 4 @name {dib[31:0]} -pg 1 -lvl 3 -y 80
+load inst simulator::tb_janus,janus janus {} -hier simulator::tb_janus -attr @name janus -attr @color #00ffff -pinAttr 0 @name clk_janus=x -pinAttr 0 @color #ff0000 -pinAttr 1 @name rst_janus_b=x -pinAttr 1 @color #ff0000 -pinAttr 104 @name halt=x -pinAttr 104 @color #ff0000 -pinBusAttr 0 @name {dib_janus[31:0]=xxxxxxxx} -pinBusAttr 0 @color #ff0000 -pinBusAttr 1 @name {cb_in[2:0]=x} -pinBusAttr 1 @color #ff0000 -pinBusAttr 2 @name {dob[31:0]=xxxxxxxx} -pinBusAttr 2 @color #ff0000 -pinBusAttr 3 @name {ab[31:0]=xxxxxxxx} -pinBusAttr 3 @color #ff0000 -pinBusAttr 4 @name {cb_out[2:0]=x} -pinBusAttr 4 @color #ff0000 -hierPinAttr 0 @name clk_janus -hierPinAttr 1 @name rst_janus_b -hierPinAttr 104 @name halt -hierPinBusAttr 0 @name {dib_janus[31:0]} -hierPinBusAttr 1 @name {cb_in[2:0]} -hierPinBusAttr 2 @name {dob[31:0]} -hierPinBusAttr 3 @name {ab[31:0]} -hierPinBusAttr 4 @name {cb_out[2:0]} -pg 1 -lvl 2 -y 80
+load inst simulator::tb_janus,Unknown_0 rtl_Unknown_4 {} -hier simulator::tb_janus -attr @name Unknown_0 -attr @cell {} -attr @color #00ff00 -pinAttr 0 @name clk_janus=x -pinAttr 0 @color #ff0000 -pg 1 -lvl 1 -y 130
+load inst simulator::tb_janus,LNot_0 rtl_LNot_5 {} -hier simulator::tb_janus -attr @name {} -attr @cell {} -attr @color #00ff00 -pinAttr 0 @name clk_janus=x -pinAttr 0 @color #ff0000 -pinAttr 1 @name clk_janus=x -pinAttr 1 @color #ff0000 -pg 1 -lvl 1 -y 50
+load inst simulator::tb_janus,Unknown_1 rtl_Unknown_6 {} -hier simulator::tb_janus -attr @name Unknown_1 -attr @cell {} -attr @color #00ff00 -pinAttr 0 @name rst_janus_b=x -pinAttr 0 @color #ff0000 -pg 1 -lvl 1 -y 190
+load inst simulator::tb_janus,Unknown_2 rtl_Unknown_7 {} -hier simulator::tb_janus -attr @name Unknown_2 -attr @cell {} -attr @color #00ff00 -pinBusAttr 0 @name j=x -pinBusAttr 0 @color #ff0000 -pg 1 -lvl 2 -y 280
+load net {simulator::tb_janus,dob[14]} -attr @name {dob[14]} -attr @color #666666.1 -pin simulator::tb_janus,janus 54 -pin simulator::tb_janus,ram 54
+load net {simulator::tb_janus,ab[24]} -attr @name {ab[24]} -attr @color #666666.1 -pin simulator::tb_janus,janus 76 -pin simulator::tb_janus,ram 12
+load net {simulator::tb_janus,dob[5]} -attr @name {dob[5]} -attr @color #666666.1 -pin simulator::tb_janus,janus 63 -pin simulator::tb_janus,ram 63
+load net {simulator::tb_janus,j[0]} -attr @name {j[0]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 31
+load net {simulator::tb_janus,dob[0]} -attr @name {dob[0]} -attr @color #666666.1 -pin simulator::tb_janus,janus 68 -pin simulator::tb_janus,ram 68
+load net {simulator::tb_janus,ab[0]} -attr @name {ab[0]} -attr @color #666666.1 -pin simulator::tb_janus,janus 100 -pin simulator::tb_janus,ram 36
+load net {simulator::tb_janus,dib_janus[3]} -attr @name {dib_janus[3]} -attr @color #666666.1 -pin simulator::tb_janus,janus 30 -pin simulator::tb_janus,ram 100
+load net {simulator::tb_janus,j[9]} -attr @name {j[9]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 22
+load net {simulator::tb_janus,dib_janus[16]} -attr @name {dib_janus[16]} -attr @color #666666.1 -pin simulator::tb_janus,janus 17 -pin simulator::tb_janus,ram 87
+load net {simulator::tb_janus,j[26]} -attr @name {j[26]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 5
+load net {simulator::tb_janus,j[15]} -attr @name {j[15]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 16
+load net {simulator::tb_janus,dib_janus[0]} -attr @name {dib_janus[0]} -attr @color #666666.1 -pin simulator::tb_janus,janus 33 -pin simulator::tb_janus,ram 103
+load net {simulator::tb_janus,dob[25]} -attr @name {dob[25]} -attr @color #666666.1 -pin simulator::tb_janus,janus 43 -pin simulator::tb_janus,ram 43
+load net {simulator::tb_janus,cb_out[0]} -attr @name {cb_out[0]} -attr @color #666666.1 -pin simulator::tb_janus,janus 103 -pin simulator::tb_janus,ram 4
+load net {simulator::tb_janus,j[23]} -attr @name {j[23]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 8
+load net {simulator::tb_janus,j[6]} -attr @name {j[6]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 25
+load net {simulator::tb_janus,j[22]} -attr @name {j[22]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 9
+load net {simulator::tb_janus,ab[30]} -attr @name {ab[30]} -attr @color #666666.1 -pin simulator::tb_janus,janus 70 -pin simulator::tb_janus,ram 6
+load net {simulator::tb_janus,dob[28]} -attr @name {dob[28]} -attr @color #666666.1 -pin simulator::tb_janus,janus 40 -pin simulator::tb_janus,ram 40
+load net {simulator::tb_janus,ab[17]} -attr @name {ab[17]} -attr @color #666666.1 -pin simulator::tb_janus,janus 83 -pin simulator::tb_janus,ram 19
+load net simulator::tb_janus,rst_janus_b -attr @name rst_janus_b -attr @color #666666.1 -pin simulator::tb_janus,Unknown_1 0 -pin simulator::tb_janus,janus 1 -pin simulator::tb_janus,ram 1
+netloc simulator::tb_janus,rst_janus_b 1 1 2 270 190 NJ
+load net {simulator::tb_janus,dib_janus[27]} -attr @name {dib_janus[27]} -attr @color #666666.1 -pin simulator::tb_janus,janus 6 -pin simulator::tb_janus,ram 76
+load net {simulator::tb_janus,cb_in[0]} -attr @name {cb_in[0]} -attr @color #666666.1 -pin simulator::tb_janus,janus 36 -pin simulator::tb_janus,ram 71
+load net {simulator::tb_janus,dob[17]} -attr @name {dob[17]} -attr @color #666666.1 -pin simulator::tb_janus,janus 51 -pin simulator::tb_janus,ram 51
+load net {simulator::tb_janus,ab[27]} -attr @name {ab[27]} -attr @color #666666.1 -pin simulator::tb_janus,janus 73 -pin simulator::tb_janus,ram 9
+load net {simulator::tb_janus,j[10]} -attr @name {j[10]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 21
+load net {simulator::tb_janus,ab[14]} -attr @name {ab[14]} -attr @color #666666.1 -pin simulator::tb_janus,janus 86 -pin simulator::tb_janus,ram 22
+load net {simulator::tb_janus,j[30]} -attr @name {j[30]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 1
+load net {simulator::tb_janus,dib_janus[17]} -attr @name {dib_janus[17]} -attr @color #666666.1 -pin simulator::tb_janus,janus 16 -pin simulator::tb_janus,ram 86
+load net {simulator::tb_janus,dib_janus[22]} -attr @name {dib_janus[22]} -attr @color #666666.1 -pin simulator::tb_janus,janus 11 -pin simulator::tb_janus,ram 81
+load net {simulator::tb_janus,dob[8]} -attr @name {dob[8]} -attr @color #666666.1 -pin simulator::tb_janus,janus 60 -pin simulator::tb_janus,ram 60
+load net {simulator::tb_janus,j[3]} -attr @name {j[3]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 28
+load net {simulator::tb_janus,dob[26]} -attr @name {dob[26]} -attr @color #666666.1 -pin simulator::tb_janus,janus 42 -pin simulator::tb_janus,ram 42
+load net {simulator::tb_janus,dob[12]} -attr @name {dob[12]} -attr @color #666666.1 -pin simulator::tb_janus,janus 56 -pin simulator::tb_janus,ram 56
+load net {simulator::tb_janus,ab[22]} -attr @name {ab[22]} -attr @color #666666.1 -pin simulator::tb_janus,janus 78 -pin simulator::tb_janus,ram 14
+load net {simulator::tb_janus,ab[8]} -attr @name {ab[8]} -attr @color #666666.1 -pin simulator::tb_janus,janus 92 -pin simulator::tb_janus,ram 28
+load net {simulator::tb_janus,j[18]} -attr @name {j[18]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 13
+load net {simulator::tb_janus,dib_janus[14]} -attr @name {dib_janus[14]} -attr @color #666666.1 -pin simulator::tb_janus,janus 19 -pin simulator::tb_janus,ram 89
+load net {simulator::tb_janus,dob[23]} -attr @name {dob[23]} -attr @color #666666.1 -pin simulator::tb_janus,janus 45 -pin simulator::tb_janus,ram 45
+load net {simulator::tb_janus,dib_janus[8]} -attr @name {dib_janus[8]} -attr @color #666666.1 -pin simulator::tb_janus,janus 25 -pin simulator::tb_janus,ram 95
+load net {simulator::tb_janus,dob[7]} -attr @name {dob[7]} -attr @color #666666.1 -pin simulator::tb_janus,janus 61 -pin simulator::tb_janus,ram 61
+load net {simulator::tb_janus,j[2]} -attr @name {j[2]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 29
+load net {simulator::tb_janus,ab[5]} -attr @name {ab[5]} -attr @color #666666.1 -pin simulator::tb_janus,janus 95 -pin simulator::tb_janus,ram 31
+load net {simulator::tb_janus,dob[2]} -attr @name {dob[2]} -attr @color #666666.1 -pin simulator::tb_janus,janus 66 -pin simulator::tb_janus,ram 66
+load net {simulator::tb_janus,ab[15]} -attr @name {ab[15]} -attr @color #666666.1 -pin simulator::tb_janus,janus 85 -pin simulator::tb_janus,ram 21
+load net {simulator::tb_janus,ab[2]} -attr @name {ab[2]} -attr @color #666666.1 -pin simulator::tb_janus,janus 98 -pin simulator::tb_janus,ram 34
+load net {simulator::tb_janus,j[28]} -attr @name {j[28]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 3
+load net {simulator::tb_janus,dib_janus[5]} -attr @name {dib_janus[5]} -attr @color #666666.1 -pin simulator::tb_janus,janus 28 -pin simulator::tb_janus,ram 98
+load net {simulator::tb_janus,dib_janus[2]} -attr @name {dib_janus[2]} -attr @color #666666.1 -pin simulator::tb_janus,janus 31 -pin simulator::tb_janus,ram 101
+load net {simulator::tb_janus,dob[10]} -attr @name {dob[10]} -attr @color #666666.1 -pin simulator::tb_janus,janus 58 -pin simulator::tb_janus,ram 58
+load net {simulator::tb_janus,dib_janus[25]} -attr @name {dib_janus[25]} -attr @color #666666.1 -pin simulator::tb_janus,janus 8 -pin simulator::tb_janus,ram 78
+load net {simulator::tb_janus,j[17]} -attr @name {j[17]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 14
+load net {simulator::tb_janus,j[25]} -attr @name {j[25]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 6
+load net {simulator::tb_janus,dib_janus[20]} -attr @name {dib_janus[20]} -attr @color #666666.1 -pin simulator::tb_janus,janus 13 -pin simulator::tb_janus,ram 83
+load net {simulator::tb_janus,dob[15]} -attr @name {dob[15]} -attr @color #666666.1 -pin simulator::tb_janus,janus 53 -pin simulator::tb_janus,ram 53
+load net {simulator::tb_janus,ab[25]} -attr @name {ab[25]} -attr @color #666666.1 -pin simulator::tb_janus,janus 75 -pin simulator::tb_janus,ram 11
+load net {simulator::tb_janus,ab[12]} -attr @name {ab[12]} -attr @color #666666.1 -pin simulator::tb_janus,janus 88 -pin simulator::tb_janus,ram 24
+load net simulator::tb_janus,clk_janus -attr @name clk_janus -attr @color #666666.1 -pin simulator::tb_janus,LNot_0 0 -pin simulator::tb_janus,LNot_0 1 -pin simulator::tb_janus,Unknown_0 0 -pin simulator::tb_janus,janus 0 -pin simulator::tb_janus,ram 0
+netloc simulator::tb_janus,clk_janus 1 0 3 30 80 250 50 740
+load net {simulator::tb_janus,dib_janus[15]} -attr @name {dib_janus[15]} -attr @color #666666.1 -pin simulator::tb_janus,janus 18 -pin simulator::tb_janus,ram 88
+load net {simulator::tb_janus,dob[1]} -attr @name {dob[1]} -attr @color #666666.1 -pin simulator::tb_janus,janus 67 -pin simulator::tb_janus,ram 67
+load net {simulator::tb_janus,dob[24]} -attr @name {dob[24]} -attr @color #666666.1 -pin simulator::tb_janus,janus 44 -pin simulator::tb_janus,ram 44
+load net {simulator::tb_janus,ab[20]} -attr @name {ab[20]} -attr @color #666666.1 -pin simulator::tb_janus,janus 80 -pin simulator::tb_janus,ram 16
+load net {simulator::tb_janus,j[8]} -attr @name {j[8]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 23
+load net {simulator::tb_janus,dob[21]} -attr @name {dob[21]} -attr @color #666666.1 -pin simulator::tb_janus,janus 47 -pin simulator::tb_janus,ram 47
+load net {simulator::tb_janus,dib_janus[12]} -attr @name {dib_janus[12]} -attr @color #666666.1 -pin simulator::tb_janus,janus 21 -pin simulator::tb_janus,ram 91
+load net {simulator::tb_janus,j[5]} -attr @name {j[5]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 26
+load net {simulator::tb_janus,cb_out[1]} -attr @name {cb_out[1]} -attr @color #666666.1 -pin simulator::tb_janus,janus 102 -pin simulator::tb_janus,ram 3
+load net {simulator::tb_janus,dob[29]} -attr @name {dob[29]} -attr @color #666666.1 -pin simulator::tb_janus,janus 39 -pin simulator::tb_janus,ram 39
+load net {simulator::tb_janus,ab[13]} -attr @name {ab[13]} -attr @color #666666.1 -pin simulator::tb_janus,janus 87 -pin simulator::tb_janus,ram 23
+load net {simulator::tb_janus,cb_in[1]} -attr @name {cb_in[1]} -attr @color #666666.1 -pin simulator::tb_janus,janus 35 -pin simulator::tb_janus,ram 70
+load net {simulator::tb_janus,dib_janus[28]} -attr @name {dib_janus[28]} -attr @color #666666.1 -pin simulator::tb_janus,janus 5 -pin simulator::tb_janus,ram 75
+load net {simulator::tb_janus,ab[28]} -attr @name {ab[28]} -attr @color #666666.1 -pin simulator::tb_janus,janus 72 -pin simulator::tb_janus,ram 8
+load net {simulator::tb_janus,dob[9]} -attr @name {dob[9]} -attr @color #666666.1 -pin simulator::tb_janus,janus 59 -pin simulator::tb_janus,ram 59
+load net {simulator::tb_janus,dob[18]} -attr @name {dob[18]} -attr @color #666666.1 -pin simulator::tb_janus,janus 50 -pin simulator::tb_janus,ram 50
+load net {simulator::tb_janus,dib_janus[31]} -attr @name {dib_janus[31]} -attr @color #666666.1 -pin simulator::tb_janus,janus 2 -pin simulator::tb_janus,ram 72
+load net {simulator::tb_janus,j[4]} -attr @name {j[4]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 27
+load net {simulator::tb_janus,dib_janus[23]} -attr @name {dib_janus[23]} -attr @color #666666.1 -pin simulator::tb_janus,janus 10 -pin simulator::tb_janus,ram 80
+load net {simulator::tb_janus,ab[7]} -attr @name {ab[7]} -attr @color #666666.1 -pin simulator::tb_janus,janus 93 -pin simulator::tb_janus,ram 29
+load net {simulator::tb_janus,ab[10]} -attr @name {ab[10]} -attr @color #666666.1 -pin simulator::tb_janus,janus 90 -pin simulator::tb_janus,ram 26
+load net {simulator::tb_janus,ab[23]} -attr @name {ab[23]} -attr @color #666666.1 -pin simulator::tb_janus,janus 77 -pin simulator::tb_janus,ram 13
+load net {simulator::tb_janus,dob[4]} -attr @name {dob[4]} -attr @color #666666.1 -pin simulator::tb_janus,janus 64 -pin simulator::tb_janus,ram 64
+load net {simulator::tb_janus,dob[13]} -attr @name {dob[13]} -attr @color #666666.1 -pin simulator::tb_janus,janus 55 -pin simulator::tb_janus,ram 55
+load net {simulator::tb_janus,dob[22]} -attr @name {dob[22]} -attr @color #666666.1 -pin simulator::tb_janus,janus 46 -pin simulator::tb_janus,ram 46
+load net {simulator::tb_janus,dib_janus[13]} -attr @name {dib_janus[13]} -attr @color #666666.1 -pin simulator::tb_janus,janus 20 -pin simulator::tb_janus,ram 90
+load net {simulator::tb_janus,dob[31]} -attr @name {dob[31]} -attr @color #666666.1 -pin simulator::tb_janus,janus 37 -pin simulator::tb_janus,ram 37
+load net {simulator::tb_janus,j[13]} -attr @name {j[13]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 18
+load net {simulator::tb_janus,dib_janus[7]} -attr @name {dib_janus[7]} -attr @color #666666.1 -pin simulator::tb_janus,janus 26 -pin simulator::tb_janus,ram 96
+load net {simulator::tb_janus,ab[4]} -attr @name {ab[4]} -attr @color #666666.1 -pin simulator::tb_janus,janus 96 -pin simulator::tb_janus,ram 32
+load net simulator::tb_janus,halt -attr @name halt -attr @color #666666.1 -pin simulator::tb_janus,janus 104
+netloc simulator::tb_janus,halt 1 2 1 N
+load net {simulator::tb_janus,j[19]} -attr @name {j[19]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 12
+load net {simulator::tb_janus,ab[1]} -attr @name {ab[1]} -attr @color #666666.1 -pin simulator::tb_janus,janus 99 -pin simulator::tb_janus,ram 35
+load net {simulator::tb_janus,dib_janus[10]} -attr @name {dib_janus[10]} -attr @color #666666.1 -pin simulator::tb_janus,janus 23 -pin simulator::tb_janus,ram 93
+load net {simulator::tb_janus,j[14]} -attr @name {j[14]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 17
+load net {simulator::tb_janus,dib_janus[4]} -attr @name {dib_janus[4]} -attr @color #666666.1 -pin simulator::tb_janus,janus 29 -pin simulator::tb_janus,ram 99
+load net {simulator::tb_janus,j[27]} -attr @name {j[27]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 4
+load net {simulator::tb_janus,dob[3]} -attr @name {dob[3]} -attr @color #666666.1 -pin simulator::tb_janus,janus 65 -pin simulator::tb_janus,ram 65
+load net {simulator::tb_janus,dob[30]} -attr @name {dob[30]} -attr @color #666666.1 -pin simulator::tb_janus,janus 38 -pin simulator::tb_janus,ram 38
+load net {simulator::tb_janus,dib_janus[1]} -attr @name {dib_janus[1]} -attr @color #666666.1 -pin simulator::tb_janus,janus 32 -pin simulator::tb_janus,ram 102
+load net {simulator::tb_janus,j[21]} -attr @name {j[21]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 10
+load net {simulator::tb_janus,ab[11]} -attr @name {ab[11]} -attr @color #666666.1 -pin simulator::tb_janus,janus 89 -pin simulator::tb_janus,ram 25
+load net {simulator::tb_janus,j[24]} -attr @name {j[24]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 7
+load net {simulator::tb_janus,ab[18]} -attr @name {ab[18]} -attr @color #666666.1 -pin simulator::tb_janus,janus 82 -pin simulator::tb_janus,ram 18
+load net {simulator::tb_janus,ab[31]} -attr @name {ab[31]} -attr @color #666666.1 -pin simulator::tb_janus,janus 69 -pin simulator::tb_janus,ram 5
+load net {simulator::tb_janus,dib_janus[26]} -attr @name {dib_janus[26]} -attr @color #666666.1 -pin simulator::tb_janus,janus 7 -pin simulator::tb_janus,ram 77
+load net {simulator::tb_janus,j[7]} -attr @name {j[7]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 24
+load net {simulator::tb_janus,ab[26]} -attr @name {ab[26]} -attr @color #666666.1 -pin simulator::tb_janus,janus 74 -pin simulator::tb_janus,ram 10
+load net {simulator::tb_janus,dob[16]} -attr @name {dob[16]} -attr @color #666666.1 -pin simulator::tb_janus,janus 52 -pin simulator::tb_janus,ram 52
+load net {simulator::tb_janus,dib_janus[21]} -attr @name {dib_janus[21]} -attr @color #666666.1 -pin simulator::tb_janus,janus 12 -pin simulator::tb_janus,ram 82
+load net {simulator::tb_janus,ab[21]} -attr @name {ab[21]} -attr @color #666666.1 -pin simulator::tb_janus,janus 79 -pin simulator::tb_janus,ram 15
+load net {simulator::tb_janus,dob[11]} -attr @name {dob[11]} -attr @color #666666.1 -pin simulator::tb_janus,janus 57 -pin simulator::tb_janus,ram 57
+load net {simulator::tb_janus,dob[20]} -attr @name {dob[20]} -attr @color #666666.1 -pin simulator::tb_janus,janus 48 -pin simulator::tb_janus,ram 48
+load net {simulator::tb_janus,j[20]} -attr @name {j[20]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 11
+load net {simulator::tb_janus,dib_janus[11]} -attr @name {dib_janus[11]} -attr @color #666666.1 -pin simulator::tb_janus,janus 22 -pin simulator::tb_janus,ram 92
+load net {simulator::tb_janus,dib_janus[18]} -attr @name {dib_janus[18]} -attr @color #666666.1 -pin simulator::tb_janus,janus 15 -pin simulator::tb_janus,ram 85
+load net {simulator::tb_janus,j[31]} -attr @name {j[31]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 0
+load net {simulator::tb_janus,j[11]} -attr @name {j[11]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 20
+load net {simulator::tb_janus,dob[27]} -attr @name {dob[27]} -attr @color #666666.1 -pin simulator::tb_janus,janus 41 -pin simulator::tb_janus,ram 41
+load net {simulator::tb_janus,cb_out[2]} -attr @name {cb_out[2]} -attr @color #666666.1 -pin simulator::tb_janus,janus 101 -pin simulator::tb_janus,ram 2
+load net {simulator::tb_janus,ab[9]} -attr @name {ab[9]} -attr @color #666666.1 -pin simulator::tb_janus,janus 91 -pin simulator::tb_janus,ram 27
+load net {simulator::tb_janus,dob[6]} -attr @name {dob[6]} -attr @color #666666.1 -pin simulator::tb_janus,janus 62 -pin simulator::tb_janus,ram 62
+load net {simulator::tb_janus,j[1]} -attr @name {j[1]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 30
+load net {simulator::tb_janus,ab[19]} -attr @name {ab[19]} -attr @color #666666.1 -pin simulator::tb_janus,janus 81 -pin simulator::tb_janus,ram 17
+load net {simulator::tb_janus,dob[19]} -attr @name {dob[19]} -attr @color #666666.1 -pin simulator::tb_janus,janus 49 -pin simulator::tb_janus,ram 49
+load net {simulator::tb_janus,dib_janus[9]} -attr @name {dib_janus[9]} -attr @color #666666.1 -pin simulator::tb_janus,janus 24 -pin simulator::tb_janus,ram 94
+load net {simulator::tb_janus,dib_janus[30]} -attr @name {dib_janus[30]} -attr @color #666666.1 -pin simulator::tb_janus,janus 3 -pin simulator::tb_janus,ram 73
+load net {simulator::tb_janus,ab[6]} -attr @name {ab[6]} -attr @color #666666.1 -pin simulator::tb_janus,janus 94 -pin simulator::tb_janus,ram 30
+load net {simulator::tb_janus,cb_in[2]} -attr @name {cb_in[2]} -attr @color #666666.1 -pin simulator::tb_janus,janus 34 -pin simulator::tb_janus,ram 69
+load net {simulator::tb_janus,dib_janus[29]} -attr @name {dib_janus[29]} -attr @color #666666.1 -pin simulator::tb_janus,janus 4 -pin simulator::tb_janus,ram 74
+load net {simulator::tb_janus,ab[3]} -attr @name {ab[3]} -attr @color #666666.1 -pin simulator::tb_janus,janus 97 -pin simulator::tb_janus,ram 33
+load net {simulator::tb_janus,ab[16]} -attr @name {ab[16]} -attr @color #666666.1 -pin simulator::tb_janus,janus 84 -pin simulator::tb_janus,ram 20
+load net {simulator::tb_janus,ab[29]} -attr @name {ab[29]} -attr @color #666666.1 -pin simulator::tb_janus,janus 71 -pin simulator::tb_janus,ram 7
+load net {simulator::tb_janus,j[12]} -attr @name {j[12]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 19
+load net {simulator::tb_janus,j[16]} -attr @name {j[16]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 15
+load net {simulator::tb_janus,dib_janus[6]} -attr @name {dib_janus[6]} -attr @color #666666.1 -pin simulator::tb_janus,janus 27 -pin simulator::tb_janus,ram 97
+load net {simulator::tb_janus,dib_janus[24]} -attr @name {dib_janus[24]} -attr @color #666666.1 -pin simulator::tb_janus,janus 9 -pin simulator::tb_janus,ram 79
+load net {simulator::tb_janus,j[29]} -attr @name {j[29]} -attr @color #666666.1 -pin simulator::tb_janus,Unknown_2 2
+load net {simulator::tb_janus,dib_janus[19]} -attr @name {dib_janus[19]} -attr @color #666666.1 -pin simulator::tb_janus,janus 14 -pin simulator::tb_janus,ram 84
+load netBundle {simulator::tb_janus,dib_janus[31:0]} g32 -attr @name {dib_janus[31:0]} -attr @color #666666.1
+netbloc {simulator::tb_janus,dib_janus[31:0]} 1 1 3 290 230 NJ 230 1110
+load netBundle {simulator::tb_janus,ab[31:0]} g32 -attr @name {ab[31:0]} -attr @color #666666.1
+netbloc {simulator::tb_janus,ab[31:0]} 1 2 1 680
+load netBundle simulator::tb_janus,j {[31:0]} -attr @name j -attr @color #666666.1
+netbloc simulator::tb_janus,j 1 1 1 N
+load netBundle {simulator::tb_janus,cb_in[2:0]} g3 -attr @name {cb_in[2:0]} -attr @color #666666.1
+netbloc {simulator::tb_janus,cb_in[2:0]} 1 1 3 310 210 NJ 210 1130
+load netBundle {simulator::tb_janus,cb_out[2:0]} g3 -attr @name {cb_out[2:0]} -attr @color #666666.1
+netbloc {simulator::tb_janus,cb_out[2:0]} 1 2 1 720
+load netBundle {simulator::tb_janus,dob[31:0]} g32 -attr @name {dob[31:0]} -attr @color #666666.1
+netbloc {simulator::tb_janus,dob[31:0]} 1 2 1 700
+levelinfo -pg 1 0 10 1170
+levelinfo -hier simulator::tb_janus 10 110 420 840 1150
+show
+scrollpos -475 -325
+#
+# initialize ictrl to current module root {}
+ictrl init {} ,
+}
+
+#
+# Console windows
+#
+console set -windowname Console
+window geometry Console 730x250+261+564
+
+#
+# Layout selection
+#
+
